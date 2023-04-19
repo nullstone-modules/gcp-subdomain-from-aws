@@ -1,0 +1,13 @@
+org_name: nullstone
+name: gcp-subdomain-from-aws
+friendly_name: GCP Subdomain (AWS Domain)
+description: This creates a GCP-managed subdomain based on an AWS Domain
+category: subdomain
+subcategory: ""
+provider_types:
+    - gcp
+platform: cloud-dns
+subplatform: ""
+type: ""
+appCategories: []
+is_public: true
