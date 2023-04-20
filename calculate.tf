@@ -9,10 +9,10 @@ locals {
 
   subdomain_chunk = "${local.dns_name_chunk}${local.env_chunk}"
   subdomain       = trimsuffix(local.subdomain_chunk, ".")
-  fqdn            = "${local.subdomain_chunk}${local.domain_name}"
+  fqdn            = "${local.subdomain_chunk}${local.domain_name}."
 
   // output locals
-  name        = google_dns_managed_zone.this.dns_name
+  dns_name    = trimsuffix(google_dns_managed_zone.this.dns_name, ".")
   zone_id     = google_dns_managed_zone.this.name
   nameservers = [for ns in google_dns_managed_zone.this.name_servers : trimsuffix(ns, ".")]
 }

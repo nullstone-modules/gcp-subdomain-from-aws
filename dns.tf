@@ -1,6 +1,6 @@
 resource "google_dns_managed_zone" "this" {
   name     = local.block_ref
-  dns_name = "${local.fqdn}."
+  dns_name = local.fqdn
   labels   = local.labels
 }
 
