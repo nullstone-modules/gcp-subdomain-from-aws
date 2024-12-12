@@ -12,6 +12,7 @@ module "cert" {
 }
 
 locals {
-  certificate_id     = module.cert.certificate_id
-  certificate_map_id = module.cert.certificate_map_id
+  certificate_id       = module.cert.certificate_id
+  certificate_map_id   = module.cert.certificate_map_id
+  certificate_map_name = module.cert.certificate_map_name
 }
