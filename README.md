@@ -17,14 +17,14 @@ This allows a user to manage this subdomain fully in GCP without having access t
 
 ## Subdomain Calculation
 
-This modules adds the current Nullstone environment into the FQDN for the resulting subdomain.
+This module adds the current Nullstone environment into the FQDN for the resulting subdomain.
 
-Example:
+#### Example
   Domain:     `acme.com`
   Env:        `dev`
   `dns_name`: `api`
   FQDN:       `api.dev.acme.com`
 
 If `var.create_vanity = true`, then the environment chunk is omitted from the FQDN.
-The above example would become: `api.acme.com`.
-This is used to create a production URL.
+In the above example, the FQDN becomes: `api.acme.com`.
+Typically, enabling this variable is done to create a production URL.
