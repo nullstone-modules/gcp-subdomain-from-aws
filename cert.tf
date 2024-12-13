@@ -1,5 +1,6 @@
 module "cert" {
-  source = "nullstone-modules/sslcert/gcp"
+  source  = "nullstone-modules/sslcert/gcp"
+  version = "~> 0.1.0"
 
   enabled = !var.disable_certificate
   name    = local.resource_name
