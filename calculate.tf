@@ -11,8 +11,12 @@ locals {
   subdomain       = trimsuffix(local.subdomain_chunk, ".")
   fqdn            = "${local.subdomain_chunk}${local.domain_name}."
 
+  // zone_id refers to google_dns_managed_zone.this.name; however, we need this variable to wait on the resource to be created
+  // We're going to take google_dns_managed_zone.this.id and parse out the name (since id is computed during creation)
+  // Format: projects/{{project}}/managedZones/{{name}}
+  zone_id = regex("^projects/[^/]+/managedZones/([^/]+)$", google_dns_managed_zone.this.id)[0]
+
   // output locals
   dns_name    = trimsuffix(google_dns_managed_zone.this.dns_name, ".")
-  zone_id     = google_dns_managed_zone.this.name
   nameservers = [for ns in google_dns_managed_zone.this.name_servers : trimsuffix(ns, ".")]
 }
