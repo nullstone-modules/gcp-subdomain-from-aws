@@ -15,7 +15,7 @@ resource "google_dns_managed_zone" "this" {
 resource "aws_route53_record" "this-delegation" {
   provider = aws.domain
 
-  name    = local.subdomain
+  name    = local.subdomain_part
   zone_id = local.domain_zone_id
   type    = "NS"
   ttl     = 300
